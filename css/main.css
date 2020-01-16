@@ -1,0 +1,155 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.caja-titulo{
+
+	margin-left: 50px; 
+	margin-right: 50px;
+	margin-top: 20px; 
+	padding: 20px;
+	background-color: #60C2A7;
+	font-style: italic;
+	color: white;
+	border-radius: 45px;
+}
+
+.centro{
+	text-align: center;
+}
+
+.texto{
+	font-size: 25px;
+}
+
+.caja-botones{
+	height: 200px;
+}
+
+.boton{
+
+	background-color: #60c276;
+}
+
+.enlace{
+	color: white;
+}
+
+.enlace>.boton:hover{
+	color: #60c276;
+	background-color: white;
+	border-color: #60c276;
+
+}
+
+.caja-formulario{
+
+	margin-left: 320px;
+	margin-right: 320px;
+	margin-top: 50px;
+	height: 400px;
+	background-color: #3C7C4B;
+}
+
+.titulo{
+
+	padding: 10px;
+	font-style: italic;
+	font-size: 20px;
+	color: white;
+}
+
+.formulario{
+
+	background-color: #60c276;
+	padding: 15px;
+
+}
+
+.caja-input{
+
+	margin: 20px;
+}
+
+.boton-principal{
+
+	background-color: #3C7C4B;
+	color: white;
+}
+
+.boton-principal:hover{
+
+	background-color: white;
+}
+
+.casilla-tabla{
+
+	background-color: #60c276;
+	font-style: italic;
+	font-size: 15px;
+	color: white;
+}
+
+.formulario-actualizar{
+
+	margin-left: 300px;
+	margin-right: 300px;
+	height: 400px;
+	background-color: #60c276;
+	font-style: italic;
+	font-size: 18px;
+
+}
+
+.titulo-aparte{
+
+	margin-left: 300px;
+	margin-right: 300px;
+	background-color: #3C7C4B;
+	font-size: 18px;
+	font-style: italic;
+	padding: 5px;
+	color: white;
+
+}
+
+.caja-input1{
+
+	margin: 0 10px 10px 10px;
+	padding: 10px;
+}
+
+.caja-proceso{
+
+	border: 2px solid #60c276;
+	padding: 5px;
+	font-style: italic;
+	color: white;
+	background-color: #3C7C4B;
+	font-size: 18px;
+}
+
+.caja-lista{
+
+	font-size: 18px;
+}
+
+.lista-ordenanda{
+
+	border: 1px solid;
+	background-color: #60c276;
+}
+
+
+
+
+
+
+
+
+
+
+
