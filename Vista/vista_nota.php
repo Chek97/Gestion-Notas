@@ -28,9 +28,30 @@
 				<?php 
 					require_once('../Controlador/estudiante_controlador.php');
 					//Traer a los estudiantes a partir del curso
-					$lista_estudiantes = $obj_estudiante->get_estudiantes($curso);
+
+					if(isset($_GET["pagina"])){
+
+						$pa = $_GET['pagina'];
+							if($_GET["pagina"] == 1){
+								header("location: ../Vista/vista_nota.php?p=$periodo&c=$curso");//arreglar esta ruta
+							}else{
+								$pagina = $_GET["pagina"];
+							}
+					}else{
+						$pagina = 1;
+					}
+
+					$tamañoPagina = 10;
+
+					$empezar = ($pagina - 1) * $tamañoPagina;
+
+					$numFilas = $obj_estudiante->total_estudiantes($curso);//metodo para obtener el total de alumnos
+
+					$totalPaginas = ceil($numFilas / $tamañoPagina);
 
 					//Ciclo para colocar los datos en pantalla
+
+					$lista_estudiantes = $obj_estudiante->obtener_10($empezar, $tamañoPagina, $curso);
 
 					foreach ($lista_estudiantes as $est) {
 
@@ -53,6 +74,21 @@
 				 ?>
 			</table>
 		</div>
+		<?php
+
+
+			echo "<ul class='pagination'>";
+			for($i = 1; $i<=$totalPaginas; $i++){
+
+				if($i == $pagina){
+					echo "<li class='disabled'><a>". $i . "</a></li>";
+				}else{
+					echo "<li><a href='?p=$periodo&c=$curso&pagina=" . $i . "'>". $i . "</a></li>";
+				}
+
+			}
+			echo "</ul>";
+		?>	
 		<div class="col-xs-12 col-md-6 col-lg-6">
 			<a href="../index.php">Volver</a>
 		</div>

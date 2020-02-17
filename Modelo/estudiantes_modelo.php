@@ -48,6 +48,33 @@
 
 			return $lista;
 		}
+
+		public function obtener_10($empezar, $tamaño, $id_curso){
+
+			$consulta4 = $this->bd->query("SELECT * FROM estudiante WHERE curso_id='$id_curso' LIMIT $empezar, $tamaño");
+
+			$l_estudiantes = array();
+			if($consulta4->rowCount()){
+				while ($fila = $consulta4->fetch(PDO::FETCH_ASSOC)) {
+				
+				$l_estudiantes[] = $fila;
+				}
+
+			}else{
+				return false;
+			}
+			return $l_estudiantes;
+			
+		}
+
+		public function total_estudiantes($curso){
+
+			$consulta5 = $this->bd->query("SELECT COUNT(*) FROM estudiante WHERE curso_id=$curso");
+
+			$total = $consulta5->fetch();
+
+			return $total[0];
+		}
 	}
 
 

@@ -18,12 +18,12 @@
 	<div class="formulario">
 		<select id="selector_curso" class="form-control" onchange="ver_informe(document.getElementById('selector_periodo').value, this.value)">
 			<option>Selecciona una opcion</option>
-			<option value="1">9-05</option>
-			<option value="2">9-06</option>
-			<option value="3">10-01</option>
-			<option value="4">10-02</option>
-			<option value="5">10-03</option>
-			<option value="6">10-04</option>
+			<option value="1">10-01</option>
+			<option value="2">10-02</option>
+			<option value="3">10-03</option>
+			<option value="4">10-04</option>
+			<option value="5">10-05</option>
+			<option value="6">11-01</option>
 		</select>	
 	</div>
 	</div>
