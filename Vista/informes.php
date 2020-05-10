@@ -1,5 +1,11 @@
-<?php include('../includes/header.php'); ?>
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Informe del estudiante</title>
+		<?php include('../includes/header.php'); ?>
+	</head>
+	<body>
 <div class="container">
 	<div class="caja-formulario">
 		<div class="centro titulo">
@@ -13,7 +19,7 @@
 			<option value="2">Periodo2</option>
 			<option value="3">Periodo3</option>
 			<option value="4">Periodo4</option>
-		</select>	
+		</select>
 	</div>
 	<div class="formulario">
 		<select id="selector_curso" class="form-control" onchange="ver_informe(document.getElementById('selector_periodo').value, this.value)">
@@ -24,7 +30,7 @@
 			<option value="4">10-04</option>
 			<option value="5">10-05</option>
 			<option value="6">11-01</option>
-		</select>	
+		</select>
 	</div>
 	</div>
 </div>

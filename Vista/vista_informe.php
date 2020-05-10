@@ -1,5 +1,12 @@
-<?php include('../includes/header.php'); 
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Informe</title>
+		<?php include('../includes/header.php'); ?>
+	</head>
+	<body>
+<?php 
 	include_once('../Controlador/estudiante_controlador.php');
 
 	$periodo = $_GET['p'];
@@ -29,7 +36,7 @@
 					<td><?php echo $estudiante['apellido']; ?></td>
 					<td style="text-align: center;"><a href="../Vista/vista_informe_estudiante.php?id=<?php echo $estudiante['id']; ?>&p=<?php echo $periodo; ?>"><button class="btn btn-warning">VER</button></a></td>
 				</tr>
-			<?php } ?>	
+			<?php } ?>
 		</table>
 		<a href="../index.php">Volver</a>
 	</div>

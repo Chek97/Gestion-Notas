@@ -1,5 +1,11 @@
-<?php include_once('../includes/header.php'); ?>
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Nota</title>
+		<?php include('../includes/header.php'); ?>
+	</head>
+	<body>
 <div class="container">
 	<div class="centro titulo-aparte">
 		<h1>Agregar Nota</h1>
@@ -32,11 +38,8 @@
 			<div style="text-align: center;">
 				<input type="submit" name="agregar_nota" value="Agregar" class="btn boton-principal">
 			</div>
-			
+
 		</form>
 	</div>
 </div>
-
-
-
 <?php include_once('../includes/footer.php'); ?>

@@ -1,4 +1,12 @@
-<?php include('../includes/header.php'); 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Notas</title>
+		<?php include('../includes/header.php'); ?>
+	</head>
+	<body>
+<?php
 
 	//Obtenemos los indicadores de curso y periodo
 	$periodo = $_GET['p'];
@@ -25,7 +33,7 @@
 						<th colspan="2" style="text-align: center;">AGREGAR</th>
 					</tr>
 				</thead>
-				<?php 
+				<?php
 					require_once('../Controlador/estudiante_controlador.php');
 					//Traer a los estudiantes a partir del curso
 
@@ -56,20 +64,20 @@
 					foreach ($lista_estudiantes as $est) {
 
 						$lista_id = $obj_proceso->get_procesos($est['id'], $periodo);
-			
-						
+
+
 				?>
 					<tr>
 						<td><?php echo $est['id'] ?></td>
 						<td><?php echo $est['nombre'] ?></td>
 						<td><?php echo $est['apellido'] ?></td>
-					<?php foreach ($lista_id as $d) { ?>	
+					<?php foreach ($lista_id as $d) { ?>
 						<td><a href="vista_actualizar_nota.php?id=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&nomp=<?php echo $d['nombre']; ?>&curso=<?php echo $curso; ?>"><?php echo $d['nota'] ?></a></td>
-					<?php } ?>	
+					<?php } ?>
 						<td><a href="vista_formulario_nota.php?estudiante=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&curso=<?php echo $curso; ?>"><button class="btn btn-success">Agregar Nota</button></a></td>
 						<td><a href="vista_comentario.php?id=<?php echo $est['id']; ?>&curso=<?php echo $curso; ?>&periodo=<?php echo $periodo; ?>"><button class="btn btn-info">Agregar Comentario</button></a></td>
-					</tr>		
-				<?php 
+					</tr>
+				<?php
 					}
 				 ?>
 			</table>
@@ -88,7 +96,7 @@
 
 			}
 			echo "</ul>";
-		?>	
+		?>
 		<div class="col-xs-12 col-md-6 col-lg-6">
 			<a href="../index.php">Volver</a>
 		</div>

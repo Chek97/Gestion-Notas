@@ -1,4 +1,12 @@
-<?php include('../includes/header.php');  
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Informe Estudiante</title>
+		<?php include('../includes/header.php'); ?>
+	</head>
+	<body>
+<?php
 	//TRAER TODA LA INFORMACION RELEVANTE Y COLOCARLA EN ESTE LUGAR
 
 	$id_estudiante = $_GET['id'];
@@ -34,7 +42,7 @@
 				<thead>
 					<tr class="casilla-tabla">
 						<?php foreach ($lista_procesos as $proceso) {
-				
+
 							//OBTENER EL ID DEL PROCESO PARA OBTENER SACAR LAS NOTAS
 							$lista_notas = $obj_nota->get_notas($proceso['id']);
 						 ?>
@@ -51,9 +59,9 @@
 		</div>
 		<div class="table-responsive">
 			<h2>Notas</h2>
-			<?php 
+			<?php
 				foreach ($lista_procesos as $proceso) {
-					
+
 					$lista_notas = $obj_nota->get_notas($proceso['id']);
 
 						echo '<div class="caja-proceso">' . $proceso['nombre'].'</div><br>';
@@ -62,19 +70,19 @@
 									<ul class='lista-ordenanda'>";
 							echo '<li>' . $n['titulo'] . ': ' . $n['calificacion'] . '</li>';
 							echo "</ul></div>";
-					}	
+					}
 				}
 			 ?>
 		</div>
 		<div class="caja-lista">
 			<h2>Comentarios</h2>
-			<?php 
+			<?php
 				require_once('../Controlador/comentario_controlador.php');
 
 				$lista_comentarios = $obj_comentario->obtener_comentario($id_estudiante);
 				echo '<div><ul class="lista-ordenanda">';
 				foreach ($lista_comentarios as $com) {
-					
+
 					echo '<li>'.$com['comentario'] . '</li>';
 				}
 				echo "</ul></div>";
@@ -120,9 +128,7 @@
 
 		};
 
-		
-	</script>	
 
+	</script>
 
-	
 <?php include('../includes/footer.php'); ?>

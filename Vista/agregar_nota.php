@@ -1,4 +1,11 @@
-<?php include('../includes/header.php'); ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Cursos</title>
+		<?php include('../includes/header.php'); ?>
+	</head>
+	<body>
 <div class="container">
 	<div class="caja-formulario">
 		<div class="centro titulo">
@@ -24,10 +31,10 @@
 				<option value="4">10-04</option>
 				<option value="5">10-05</option>
 				<option value="6">11-01</option>
-			</select>	
+			</select>
 		</div>
 	</div>
-	
+
 </div>
 
 <?php include('../includes/footer.php'); ?>

@@ -1,4 +1,12 @@
-<?php include('../includes/header.php'); 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Actualizar Nota</title>
+		<?php include('../includes/header.php'); ?>
+	</head>
+	<body>
+<?php
 
 	$id_estudiante = $_GET['id'];
 	$periodo = $_GET['periodo'];
@@ -14,7 +22,7 @@
 <div class="container">
 	<div class="centro titulo-aparte" style="background-color: #3C7C4B;">
 		<h1>ACTUALIZAR NOTAS</h1>
-	</div>	
+	</div>
 	<div class="formulario-actualizar" style="padding: 20px;">
 		<form action="../Controlador/notas_controlador.php" method="POST">
 			<table class="table table-bordered">
@@ -37,11 +45,9 @@
 				</tr>
 			<?php } ?>
 			</table>
-			<input type="submit" name="actualizador" value="Actualizar" class="btn boton-principal">	
+			<input type="submit" name="actualizador" value="Actualizar" class="btn boton-principal">
 		</form>
-		
-	</div>	
+
+	</div>
 </div>
-
-
 <?php include('../includes/footer.php'); ?>
