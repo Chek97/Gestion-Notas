@@ -34,7 +34,10 @@
 			</select>
 		</div>
 	</div>
-
+	<div class="alert alert-info">
+		<p>Primero escoge el periodo y despues el curso</p>
+	</div>
 </div>
+
 
 <?php include('../includes/footer.php'); ?>

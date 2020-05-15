@@ -1,10 +1,11 @@
-<?php 
-	
+<?php
+
 	require_once('../Modelo/procesos_modelo.php');
 	require_once('../Modelo/notas_modelo.php');
 
 	$obj_proceso = new Procesos();
 	$obj_nota = new Notas();
+
 	if(isset($_POST['agregar_nota'])){
 
 		$id_estudiante = $_POST['estudiante_nota'];
@@ -14,18 +15,18 @@
 		$proceso_inicial = $_POST['proceso_nota'];
 		$curso = $_POST['curso_nota'];
 
-		$proceso_buscado = $obj_proceso->obtener_proceso_nota($proceso_inicial, $id_estudiante, $id_periodo);
+		$proceso_buscado = $obj_proceso->obtener_proceso_nota($proceso_inicial, $id_estudiante, $id_periodo);//id proceso
 
-		if($obj_nota->guardar_nota($titulo, $calificacion, $proceso_buscado)){
-			
-			$total_notas = $obj_nota->obtener_registro_notas($proceso_buscado); //Traera todos las notas
-			
-			$lista_notas = $obj_nota->obtener_notas($proceso_buscado);
+		if($obj_nota->guardar_nota($titulo, $calificacion, $proceso_buscado)){//guarda la nota aun si es 0
+
+			$total_notas = $obj_nota->obtener_registro_notas($proceso_buscado); //Traera todos las notas, la cantidad
+
+			$lista_notas = $obj_nota->obtener_notas($proceso_buscado);//traemos el arreglo de todas las notas
 
 			$suma = 0;
 
 			foreach ($lista_notas as $nota) {
-				
+
 				$suma += $nota['calificacion'];
 			}
 
@@ -33,29 +34,31 @@
 			//ahora debemos hacer que mi papa pueda actualizar las notas y la final
 
 			if($obj_proceso->actualizar_nota($suma, $proceso_buscado)){
-					
+
 				$lista_nota_proceso = $obj_proceso->obtener_nota_proceso_final($id_estudiante, $id_periodo);
 				$total = 0;
 
 				foreach ($lista_nota_proceso as $not) {
-					
+
 					$total = $total + $not['nota'];
 				}
 
 				$total = round($total / 4, 2);
 
 				if($obj_proceso->actualizar_promedio($total, $id_estudiante, $id_periodo)){
-					
+
 					header('location: ../Vista/vista_nota.php?p='.$id_periodo.'&c='.$curso);
 				}else{
 					echo "lo siento algun paso no debio salir bien";
 				}
 
 			}else{
-				echo "Algo no se hizo bien";
+				if($suma == 0){
+					echo "No se hicieron cambios porque es 0";
+				}else{
+					echo "Algo no se hizo bien";
+				}
 			}
-
-
 		}else{
 			echo "No se agrego";
 		}
@@ -71,7 +74,7 @@
 		$curso1 = $_POST['curso'];
 
 		foreach ($_POST['idnot'] as $act) {
-			
+
 			$nota_actualizar = $_POST['dato'][$act];
 			$id_nota = $_POST['idnot'][$act];
 
@@ -91,7 +94,7 @@
 			$lista_n = $obj_nota->obtener_notas($id_encontrado);
 			$suma_notas = 0;
 			foreach ($lista_n as $n) {
-				
+
 				$suma_notas = $suma_notas + $n['calificacion'];
 			}
 
@@ -115,7 +118,7 @@
 			}else{
 				echo "No pudo actualizar el proceso nota";
 			}
-		}	
+		}
 	}
 
  ?>

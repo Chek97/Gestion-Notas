@@ -29,37 +29,25 @@
 				</div>
 			</div>
 			<div style="text-align: center;">
-				<input type="submit" class="btn boton-principal" name="agregar_comentario" value="Guardar">
+				<input type="submit" class="btn boton-principal" id="agregar_comentario" name="agregar_comentario" value="Guardar">
+				<button type="button" onclick="limpiarCaja()" name="button">Limpiar</button>
 			</div>
 		</form>
 	</div>
 </div>
 <script type="text/javascript">
-
-		var contador=0;
-
-
-
-	function contar(e){
-
-
-		if(contador <= 255){
-
-			contador += 1;
-			console.log(contador);
-		}else{
-
-
-			//ARREGLAR ESTE ULTIMO PASO
-			alert('te excediste con los caracteres, reducelos porfavor');
-		}
-	}
-
 	function limpiarCaja(){
 		document.getElementById('caja').value = '';
 	}
 
-	limpiarCaja();
+	document.getElementById('agregar_comentario').addEventListener('click', function(e){
+		var texto = document.getElementById('caja').value;
+		var cuenta = texto.length;
+		if(cuenta > 250){
+			console.log("Te excediste de caracteres");
+			e.preventDefault();
+		}
+	});
 
 </script>
 

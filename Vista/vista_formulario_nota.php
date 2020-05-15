@@ -21,10 +21,12 @@
 				<label>Titulo: </label>
 				<input type="text" name="titulo_nota" required placeholder="laboratorio" class="form-control">
 			</div>
+
 			<div class="form-group caja-input1">
 				<label>Calificacion: </label>
 				<input type="number" step="any" required placeholder="3.0" name="calificacion_nota" class="form-control">
 			</div>
+
 			<div class="form-group caja-input1">
 				<label>Proceso:</label>
 				<select id="selector_proceso" class="form-control" name="proceso_nota">
@@ -35,11 +37,21 @@
 					<option value="socio-personal">Socio-personal</option>
 				</select>
 			</div>
+			
 			<div style="text-align: center;">
-				<input type="submit" name="agregar_nota" value="Agregar" class="btn boton-principal">
+				<input type="submit" name="agregar_nota" id="agregar_nota" value="Agregar" class="btn boton-principal">
 			</div>
 
 		</form>
 	</div>
 </div>
+<script type="text/javascript">
+var formularioEstudiante = document.getElementById("agregar_nota").addEventListener('click', function(event){
+	var cajaTexto = document.getElementById('selector_proceso').value;
+	if(cajaTexto === "Selecciona un curso"){
+		event.preventDefault();
+		alert("No has seleccionado ningun curso, porfavor intentalo otra vez");
+	}
+});
+</script>
 <?php include_once('../includes/footer.php'); ?>
