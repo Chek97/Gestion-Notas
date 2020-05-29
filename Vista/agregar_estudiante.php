@@ -9,9 +9,9 @@
 
 		<div class="container">
 			<div class="caja-formulario">
-				<div class="centro titulo">
+				<header class="centro titulo">
 					<h1>AGREGAR ESTUDIANTE</h1>
-				</div>
+				</header>
 				<div class="formulario">
 					<form action="../Controlador/estudiante_controlador.php" method="POST">
 						<div class="form-group caja-input">
@@ -37,7 +37,7 @@
 							</select>
 						</div>
 						<div class="caja-input">
-							<input type="submit" id="botonValidar" name="guardar_estudiante" value="Guardar" class="btn boton-principal">
+							<input type="submit" id="botonValidar" name="guardar_estudiante" value="Agregar Estudiante" class="btn boton-principal">
 						</div>
 					</form>
 				</div>

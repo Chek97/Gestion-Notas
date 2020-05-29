@@ -8,9 +8,9 @@
 	<body>
 <div class="container">
 	<div class="caja-formulario">
-		<div class="centro titulo">
+		<header class="centro titulo">
 			<h1>IR A UN CURSO</h1>
-		</div>
+		</header>
 		<div class="formulario">
 			<label>Seleccionar el perido: </label>
 			<select id="selector_periodo" class="form-control">
@@ -33,9 +33,11 @@
 				<option value="6">11-01</option>
 			</select>
 		</div>
-	</div>
-	<div class="alert alert-info">
-		<p>Primero escoge el periodo y despues el curso</p>
+		<div class="formulario">
+			<div class="alert alert-info">
+				<p>Primero escoge el periodo y despues el curso</p>
+			</div>
+		</div>
 	</div>
 </div>
 

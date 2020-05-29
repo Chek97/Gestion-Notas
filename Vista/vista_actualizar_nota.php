@@ -20,20 +20,20 @@
 
 ?>
 <div class="container">
-	<div class="centro titulo-aparte" style="background-color: #3C7C4B;">
+	<header class="titulo-aparte">
 		<h1>ACTUALIZAR NOTAS</h1>
-	</div>
-	<div class="formulario-actualizar" style="padding: 20px;">
+	</header>
+	<div class="formulario-actualizar table-responsive">
 		<form action="../Controlador/notas_controlador.php" method="POST">
-			<table class="table table-bordered">
+			<table class="table tabla-actualizadora">
 				<thead>
 					<tr>
-						<th>Notas</th>
+						<th colspan="2">Notas</th>
 					</tr>
 				</thead>
 				<?php foreach ($lista_notas as $nota) {
 				?>
-				<tr>
+				<tr class="elemento-tabla">
 					<input type="hidden" name="nombre_proceso" value="<?php echo $_GET['nomp']; ?>">
 					<input type="hidden" name="estudiante" value="<?php echo $_GET['id']; ?>">
 					<input type="hidden" name="periodo" value="<?php echo $_GET['periodo']; ?>">
