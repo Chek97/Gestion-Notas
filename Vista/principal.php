@@ -15,6 +15,7 @@
 						</header>
 					</div>
 					<div class="col-xs-12">
+						
 							<a href="agregar_estudiante.php" class="enlace"><button class="btn boton caja-botones">Agregar Estudiantes</button></a>
 							<a href="agregar_nota.php" class="enlace"><button class="btn boton caja-botones">Agregar Notas</button></a>
 							<a href="informes.php" class="enlace"><button class="btn boton caja-botones">Ver Informes</button></a>

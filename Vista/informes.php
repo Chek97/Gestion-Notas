@@ -31,7 +31,11 @@
 			<option value="5">10-05</option>
 			<option value="6">11-01</option>
 		</select>
+		<br>
+		<br>
+		<button type="button" id="regreso" onclick="devolver()" class="btn btn-primary"> Regresar </button>
 	</div>
+	
 	</div>
 </div>
 

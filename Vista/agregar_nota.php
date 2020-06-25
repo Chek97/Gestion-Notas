@@ -37,6 +37,7 @@
 			<div class="alert alert-info">
 				<p>Primero escoge el periodo y despues el curso</p>
 			</div>
+			<button type="button" id="regreso" onclick="devolver()" class="btn btn-primary"> Regresar </button>
 		</div>
 	</div>
 </div>

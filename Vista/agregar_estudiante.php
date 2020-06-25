@@ -13,6 +13,8 @@
 					<h1>AGREGAR ESTUDIANTE</h1>
 				</header>
 				<div class="formulario">
+					<button type="button" id="regreso" onclick="devolver()" class="btn btn-primary"> Regresar </button>
+			
 					<form action="../Controlador/estudiante_controlador.php" method="POST">
 						<div class="form-group caja-input">
 							<label>Nombre:</label>
