@@ -1,4 +1,4 @@
-<?php include('../includes/header.php'); ?>
+<?php include('../Includes/header.php'); ?>
 <div class="container">
 	<div class="caja-formulario">
 		<div class="centro titulo">
@@ -30,4 +30,4 @@
 	
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../Includes/footer.php'); ?>

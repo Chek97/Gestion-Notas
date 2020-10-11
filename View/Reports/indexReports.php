@@ -1,6 +1,6 @@
-<?php include('../includes/header.php'); 
+<?php include('../Includes/header.php'); 
 
-	include_once('../Controlador/estudiante_controlador.php');
+	include_once('../../Controller/estudiante_controlador.php');
 
 	$periodo = $_GET['p'];
 	$curso = $_GET['c'];
@@ -27,13 +27,13 @@
 					<td><?php echo $estudiante['id']; ?></td>
 					<td><?php echo $estudiante['nombre']; ?></td>
 					<td><?php echo $estudiante['apellido']; ?></td>
-					<td style="text-align: center;"><a href="../Vista/vista_informe_estudiante.php?id=<?php echo $estudiante['id']; ?>&p=<?php echo $periodo; ?>"><button class="btn btn-warning">VER</button></a></td>
+					<td style="text-align: center;"><a href="studentReport.php?id=<?php echo $estudiante['id']; ?>&p=<?php echo $periodo; ?>"><button class="btn btn-warning">VER</button></a></td>
 				</tr>
 			<?php } ?>	
 		</table>
-		<a href="../index.php">Volver</a>
+		<a href="../../index.php">Volver</a>
 	</div>
 </div>
 
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../Includes/footer.php'); ?>

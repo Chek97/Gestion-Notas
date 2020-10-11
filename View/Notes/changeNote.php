@@ -1,10 +1,10 @@
-<?php include('../includes/header.php'); 
+<?php include('../Includes/header.php'); 
 
 	$id_estudiante = $_GET['id'];
 	$periodo = $_GET['periodo'];
 	$nombre = $_GET['nomp'];
 
-	require_once('../Controlador/procesos_controlador.php');
+	require_once('../../Controller/procesos_controlador.php');
 
 	$id = $obj_proceso->obtener_proceso_nota($nombre, $id_estudiante, $periodo);//Tengo el dato del proceso
 
@@ -16,7 +16,7 @@
 		<h1>ACTUALIZAR NOTAS</h1>
 	</div>	
 	<div class="formulario-actualizar" style="padding: 20px;">
-		<form action="../Controlador/notas_controlador.php" method="POST">
+		<form action="../../Controller/notas_controlador.php" method="POST">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -44,4 +44,4 @@
 </div>
 
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../Includes/footer.php'); ?>

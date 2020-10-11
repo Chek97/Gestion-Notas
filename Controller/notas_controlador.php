@@ -1,7 +1,7 @@
 <?php 
 	
-	require_once('../Modelo/procesos_modelo.php');
-	require_once('../Modelo/notas_modelo.php');
+	require_once('../../Model/procesos_modelo.php');
+	require_once('../../Model/notas_modelo.php');
 
 	$obj_proceso = new Procesos();
 	$obj_nota = new Notas();
@@ -46,7 +46,7 @@
 
 				if($obj_proceso->actualizar_promedio($total, $id_estudiante, $id_periodo)){
 					
-					header('location: ../Vista/vista_nota.php?p='.$id_periodo.'&c='.$curso);
+					header('location: ../View/Notes/studentsNote.php?p='.$id_periodo.'&c='.$curso);
 				}else{
 					echo "lo siento algun paso no debio salir bien";
 				}
@@ -108,7 +108,7 @@
 				$t = round($t / 4, 2);
 				if($obj_proceso->actualizar_promedio($t, $estudiante_id, $periodo_id)){
 
-					header('location: ../Vista/vista_nota.php?p='.$periodo_id.'&c='.$curso1);
+					header('location: ../View/Notes/studentsNote.php?p='.$periodo_id.'&c='.$curso1);
 				}else{
 					echo "el ultimo paso no lo concreto";
 				}

@@ -1,4 +1,4 @@
-<?php include('../includes/header.php');
+<?php include('../Includes/header.php');
 
 	$id_estudiante = $_GET['id'];
 	$id_curso = $_GET['curso'];
@@ -9,7 +9,7 @@
 		<h1>Agregar Comentario</h1>
 	</div>
 	<div class="formulario-actualizar"  style="height: 200px">
-		<form action="../Controlador/comentario_controlador.php" method="POST">
+		<form action="../../Controller/comentario_controlador.php" method="POST">
 			<input type="hidden" name="id_comentario" value="<?php echo $id_estudiante; ?>">
 			<input type="hidden" name="id_curso" value="<?php echo $id_curso; ?>">
 			<input type="hidden" name="id_periodo" value="<?php echo $id_periodo; ?>">
@@ -58,4 +58,4 @@
 
 <!--COLOCAR UN CONDICIONAL PARA QUE NO SE PASE DE 255 CARACTERES EN EL TEXTAREA-->
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../Includes/footer.php'); ?>

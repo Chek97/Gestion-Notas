@@ -1,17 +1,17 @@
-<?php include('../includes/header.php');  
+<?php include('../Includes/header.php');  
 	//TRAER TODA LA INFORMACION RELEVANTE Y COLOCARLA EN ESTE LUGAR
 
 	$id_estudiante = $_GET['id'];
 	$id_periodo = $_GET['p'];
 
-	require_once('../Controlador/procesos_controlador.php');
-	require_once('../Controlador/notas_controlador.php');
+	require_once('../../Controller/procesos_controlador.php');
+	require_once('../../Controller/notas_controlador.php ');
 
 
 	$lista_procesos = $obj_proceso->get_procesos($id_estudiante, $id_periodo);
 ?>
-	<script type="text/javascript" src="../Vista/Chart.js-2.9.3/dist/Chart.min.js"></script>
-	<script type="text/javascript" src="../Vista/Chart.js-2.9.3/samples/utils.js"></script>
+	<script type="text/javascript" src="Chart.js-2.9.3/dist/Chart.min.js"></script><!--REVISAR ESTA PARTE DE LA LIBRERIA -->
+	<script type="text/javascript" src="Chart.js-2.9.3/samples/utils.js"></script>
 	<style>
 	canvas {
 		-moz-user-select: none;
@@ -69,7 +69,7 @@
 		<div class="caja-lista">
 			<h2>Comentarios</h2>
 			<?php 
-				require_once('../Controlador/comentario_controlador.php');
+				require_once('../../Controller/comentario_controlador.php');
 
 				$lista_comentarios = $obj_comentario->obtener_comentario($id_estudiante);
 				echo '<div><ul class="lista-ordenanda">';
@@ -81,48 +81,48 @@
 			 ?>
 		</div>
 	</div>
-<script>
-		var MONTHS = ['Comprension lectora', 'Argumentacion', 'Solucion de problemas', 'Socio-personal'];
-		var color = Chart.helpers.color;
-		var barChartData = {
-			labels: ['Comprension lectora', 'Argumentacion', 'Solucion de problemas', 'Socio-personal'],
-			datasets: [{
-				label: 'promedio',
-				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.green,
-				borderWidth: 1,
-				data: [
-					<?php foreach ($lista_procesos as $l) {
-						echo $l['nota'] . ',';
-					} ?>
-					0,5
-				]
-			}]
+	<script>
+			var MONTHS = ['Comprension lectora', 'Argumentacion', 'Solucion de problemas', 'Socio-personal'];
+			var color = Chart.helpers.color;
+			var barChartData = {
+				labels: ['Comprension lectora', 'Argumentacion', 'Solucion de problemas', 'Socio-personal'],
+				datasets: [{
+					label: 'promedio',
+					backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.green,
+					borderWidth: 1,
+					data: [
+						<?php foreach ($lista_procesos as $l) {
+							echo $l['nota'] . ',';
+						} ?>
+						0,5
+					]
+				}]
 
-		};
+			};
 
-		window.onload = function() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			window.myBar = new Chart(ctx, {
-				type: 'bar',
-				data: barChartData,
-				options: {
-					responsive: true,
-					legend: {
-						position: 'top',
-					},
-					title: {
-						display: true,
-						text: 'Rendimiento Estudiante'
+			window.onload = function() {
+				var ctx = document.getElementById('canvas').getContext('2d');
+				window.myBar = new Chart(ctx, {
+					type: 'bar',
+					data: barChartData,
+					options: {
+						responsive: true,
+						legend: {
+							position: 'top',
+						},
+						title: {
+							display: true,
+							text: 'Rendimiento Estudiante'
+						}
 					}
-				}
-			});
+				});
 
-		};
+			};
 
-		
+			
 	</script>	
 
 
 	
-<?php include('../includes/footer.php'); ?>
+<?php include('../Includes/footer.php'); ?>
