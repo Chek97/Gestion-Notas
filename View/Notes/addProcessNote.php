@@ -1,11 +1,11 @@
-<?php include_once('../includes/header.php'); ?>
+<?php include_once('../Includes/header.php'); ?>
 
 <div class="container">
 	<div class="centro titulo-aparte">
 		<h1>Agregar Nota</h1>
 	</div>
 	<div class="formulario-actualizar">
-		<form action="../Controlador/notas_controlador.php" method="POST">
+		<form action="../../Controller/notas_controlador.php" method="POST">
 
 				<input type="hidden" name="estudiante_nota" class="form-control" value="<?php echo $_GET['estudiante']; ?>">
 				<input type="hidden" name="periodo_nota" class="form-control" value="<?php echo $_GET['periodo']; ?>">
@@ -39,4 +39,4 @@
 
 
 
-<?php include_once('../includes/footer.php'); ?>
+<?php include_once('../Includes/footer.php'); ?>

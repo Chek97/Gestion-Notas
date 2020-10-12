@@ -1,4 +1,4 @@
-<?php include('../includes/header.php'); ?>
+<?php include('../Includes/header.php'); ?>
 
 <div class="container">
 	<div class="caja-formulario">
@@ -6,7 +6,7 @@
 			<h1>AGREGAR ESTUDIANTE</h1>
 		</div>
 		<div class="formulario">
-			<form action="../Controlador/estudiante_controlador.php" method="POST">
+			<form action="../../Controller/estudiante_controlador.php" method="POST">
 				<div class="form-group caja-input">
 					<label>Nombre:</label>
 					<br>
@@ -38,4 +38,4 @@
 	
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../Includes/footer.php'); ?>

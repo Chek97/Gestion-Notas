@@ -15,7 +15,7 @@ function cambiar_curso(valor1, valor2){
 
 	if(valor1 != 'Selecciona una opcion' && valor2 != 'Selecciona una opcion'){
 
-		location.href='../Vista/vista_nota.php?p=' + valor1 + '&c=' + valor2;
+		location.href='../Notes/studentsNote.php?p=' + valor1 + '&c=' + valor2;
 	}
 }
 
@@ -23,7 +23,7 @@ function ver_informe(valor1, valor2){
 
 	if(valor1 != 'Selecciona una opcion' && valor2 != 'Selecciona una opcion'){
 
-		location.href='../Vista/vista_informe.php?p=' + valor1 + '&c=' + valor2;
+		location.href='../Reports/indexReports.php?p=' + valor1 + '&c=' + valor2;
 	}
 }
 

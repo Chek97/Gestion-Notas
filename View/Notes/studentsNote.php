@@ -1,4 +1,4 @@
-<?php include('../includes/header.php'); 
+<?php include('../Includes/header.php'); 
 
 	//Obtenemos los indicadores de curso y periodo
 	$periodo = $_GET['p'];
@@ -26,7 +26,7 @@
 					</tr>
 				</thead>
 				<?php 
-					require_once('../Controlador/estudiante_controlador.php');
+					require_once('../../Controller/estudiante_controlador.php');
 					//Traer a los estudiantes a partir del curso
 					$lista_estudiantes = $obj_estudiante->get_estudiantes($curso);
 
@@ -43,10 +43,10 @@
 						<td><?php echo $est['nombre'] ?></td>
 						<td><?php echo $est['apellido'] ?></td>
 					<?php foreach ($lista_id as $d) { ?>	
-						<td><a href="vista_actualizar_nota.php?id=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&nomp=<?php echo $d['nombre']; ?>&curso=<?php echo $curso; ?>"><?php echo $d['nota'] ?></a></td>
+						<td><a href="changeNote.php?id=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&nomp=<?php echo $d['nombre']; ?>&curso=<?php echo $curso; ?>"><?php echo $d['nota'] ?></a></td>
 					<?php } ?>	
-						<td><a href="vista_formulario_nota.php?estudiante=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&curso=<?php echo $curso; ?>"><button class="btn btn-success">Agregar Nota</button></a></td>
-						<td><a href="vista_comentario.php?id=<?php echo $est['id']; ?>&curso=<?php echo $curso; ?>&periodo=<?php echo $periodo; ?>"><button class="btn btn-info">Agregar Comentario</button></a></td>
+						<td><a href="addProcessNote.php?estudiante=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&curso=<?php echo $curso; ?>"><button class="btn btn-success">Agregar Nota</button></a></td>
+						<td><a href="addComment.php?id=<?php echo $est['id']; ?>&curso=<?php echo $curso; ?>&periodo=<?php echo $periodo; ?>"><button class="btn btn-info">Agregar Comentario</button></a></td>
 					</tr>		
 				<?php 
 					}
@@ -54,10 +54,10 @@
 			</table>
 		</div>
 		<div class="col-xs-12 col-md-6 col-lg-6">
-			<a href="../index.php">Volver</a>
+			<a href="../../index.php">Volver</a>
 		</div>
 	</div>
 </div>
 
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../Includes/footer.php'); ?>

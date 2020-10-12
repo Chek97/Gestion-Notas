@@ -1,7 +1,7 @@
 <?php 
 
-	require_once('../Modelo/estudiantes_modelo.php');
-	require_once('../Modelo/procesos_modelo.php');
+	require_once('../../Model/estudiantes_modelo.php');
+	require_once('../../Model/procesos_modelo.php');
 
 	$obj_estudiante = new Estudiantes();
 	$obj_proceso = new Procesos();
@@ -22,26 +22,14 @@
 			//Insertamos los procesos del estudiante creado 
 			if($obj_proceso->crear_procesos($id_estudiante)){
 
-				header('location: ../Vista/agregar_estudiante.php');
+				header('location: ../View/Students/addStudent.php');
 			}else{
 				echo "No se creo algo";
 			}
-						
-
 
 			//header('location: ../Vista/agregar_estudiante.php');
 		}else{
 			echo "No se guardo";
 		}
 	}
-
-
-
-
-
-
-
-
-
-
  ?>

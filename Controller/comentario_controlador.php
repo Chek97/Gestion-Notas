@@ -1,6 +1,6 @@
 <?php 
 	
-	require_once('../Modelo/comentarios_modelo.php');
+	require_once('../../Model/comentarios_modelo.php');
 
 	$obj_comentario = new Comentario();
 
@@ -13,7 +13,7 @@
 
 		if($obj_comentario->agregar_comentario($comentario, $id_estudiante)){
 
-			header('location: ../Vista/vista_nota.php?p='.$id_periodo.'&c='.$id_curso);
+			header('location: ../View/Notes/studentsNote.php?p='.$id_periodo.'&c='.$id_curso);
 		}else{
 			echo "Algo no salio bien";
 		}
