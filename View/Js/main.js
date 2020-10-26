@@ -27,4 +27,5 @@ function ver_informe(valor1, valor2){
 	}
 }
 
+// CHART JS
 

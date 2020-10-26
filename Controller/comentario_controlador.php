@@ -17,7 +17,7 @@
 		}else{
 			echo "Algo no salio bien";
 		}
-	}	
-
-
+	}
+	
+	//Condicion cuando sea el metodo editar comentario
  ?>
