@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div style="text-align: center;">
-                    <input type="submit" class="btn boton-principal" name="agregar_comentario" value="Guardar">
+                    <input type="submit" class="btn boton-principal" name="editar_comentario" value="Guardar">
                 </div>
             </form>
         </div>

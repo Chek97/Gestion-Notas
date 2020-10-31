@@ -35,5 +35,12 @@
 
 			return $lista;
 		}
+
+		public function actualizar_comentario($id, $valor){
+
+			$consulta3 = $this->bd->query("UPDATE comportamiento SET comentario='$valor' WHERE id=$id");
+			
+			return $consulta3->rowCount() ? true : false;
+		}
 	}
  ?>

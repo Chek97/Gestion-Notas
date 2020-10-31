@@ -34,7 +34,9 @@
 
                 ?>
             </table>
-            <a href="addComment.php?id=<?php echo $_GET['id']; ?>&curso=<?php echo $_GET['curso']; ?>&periodo=<?php echo $_GET['periodo']; ?>"><button class='btn btn-info'>Agregar Comentario</button></a>
+            <div class='text-center'>
+                <a href="addComment.php?id=<?php echo $_GET['id']; ?>&curso=<?php echo $_GET['curso']; ?>&periodo=<?php echo $_GET['periodo']; ?>"><button class='btn btn-info'>Agregar Comentario</button></a>
+            </div>
         </div>
     </div>
 </div>
