@@ -13,11 +13,19 @@
 
 		if($obj_comentario->agregar_comentario($comentario, $id_estudiante)){
 
-			header('location: ../View/Notes/studentsNote.php?p='.$id_periodo.'&c='.$id_curso);
+			header('location: ../View/Notes/showComments.php?id='.$id_estudiante.'&curso='.$id_curso.'&periodo=' .$id_periodo);
 		}else{
 			echo "Algo no salio bien";
 		}
-	}	
+	}
 
+	if(isset($_POST['editar_comentario'])){
+		
+		if($obj_comentario->actualizar_comentario($_POST['id_comentario'], $_POST['comentario'])){
+			header('location: ../View/Notes/editComment.php?id='.$id_estudiante);
+		}else{
+			echo 'No se actualizo el comentario';
+		}
+	}
 
  ?>

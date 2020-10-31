@@ -10,15 +10,8 @@
 
 	$lista_procesos = $obj_proceso->get_procesos($id_estudiante, $id_periodo);
 ?>
-	<script type="text/javascript" src="Chart.js-2.9.3/dist/Chart.min.js"></script><!--REVISAR ESTA PARTE DE LA LIBRERIA -->
-	<script type="text/javascript" src="Chart.js-2.9.3/samples/utils.js"></script>
-	<style>
-	canvas {
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-	}
-	</style>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 	<div class="container">
 		<div class="centro titulo" style="background-color: #3C7C4B;">
 			<h1>Informe Estudiante</h1>
@@ -82,47 +75,46 @@
 		</div>
 	</div>
 	<script>
-			var MONTHS = ['Comprension lectora', 'Argumentacion', 'Solucion de problemas', 'Socio-personal'];
-			var color = Chart.helpers.color;
-			var barChartData = {
-				labels: ['Comprension lectora', 'Argumentacion', 'Solucion de problemas', 'Socio-personal'],
-				datasets: [{
-					label: 'promedio',
-					backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-					borderColor: window.chartColors.green,
-					borderWidth: 1,
-					data: [
-						<?php foreach ($lista_procesos as $l) {
+	var ctx = document.getElementById('canvas').getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['Comprension lectora', 'Argumentacion', 'Solucion de problemas', 'Socio-personal'],
+			datasets: [{
+				label: 'Promedio',
+				data: [<?php foreach ($lista_procesos as $l) {
 							echo $l['nota'] . ',';
 						} ?>
-						0,5
-					]
-				}]
-
-			};
-
-			window.onload = function() {
-				var ctx = document.getElementById('canvas').getContext('2d');
-				window.myBar = new Chart(ctx, {
-					type: 'bar',
-					data: barChartData,
-					options: {
-						responsive: true,
-						legend: {
-							position: 'top',
-						},
-						title: {
-							display: true,
-							text: 'Rendimiento Estudiante'
-						}
+						0,5],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
 					}
-				});
-
-			};
-
-			
+				}]
+			}
+		}
+	});
 	</script>	
 
-
-	
 <?php include('../Includes/footer.php'); ?>
