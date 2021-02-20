@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div style="text-align: center;">
-                            <input type="submit" class="btn boton-principal" name="editar_comentario" value="Guardar">
+                            <input type="submit" class="btn boton-principal btn-block" name="editar_comentario" value="Guardar">
                         </div>
                     </form>
                 </div>
@@ -28,23 +28,15 @@
     </div>
     <script type="text/javascript">
 		
-		var contador=0;
-		
-
-
-	function contar(e){
-
-		
-		if(contador <= 255){
-
-			contador += 1;
-			console.log(contador);
-		}else{
-
-			
-			//ARREGLAR ESTE ULTIMO PASO
-			alert('te excediste con los caracteres, reducelos porfavor');
-		}
+        
+        
+    function contar(e){
+        var behavior = document.getElementById('caja').value;
+        console.log(behavior.length);
+        if(behavior.length > 255){
+            //crear un texto en rojo cuando se exceda
+            alert('Te excediste de caracteres');
+        }
 	}
 
 	function limpiarCaja(){
@@ -54,8 +46,4 @@
 	limpiarCaja();
 
 </script>
-
-
-<!--COLOCAR UN CONDICIONAL PARA QUE NO SE PASE DE 255 CARACTERES EN EL TEXTAREA-->
-
 <?php include('../Includes/footer.php'); ?>
