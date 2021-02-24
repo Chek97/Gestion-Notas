@@ -15,7 +15,7 @@ function cambiar_curso(valor1, valor2){
 
 	if(valor1 != 'Selecciona una opcion' && valor2 != 'Selecciona una opcion'){
 
-		location.href='../Notes/studentsNote.php?p=' + valor1 + '&c=' + valor2;
+		location.href='../Notes/studentsNote.php?p=' + valor1 + '&c=' + valor2 + '&pagina=1';
 	}
 }
 
