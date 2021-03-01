@@ -7,7 +7,6 @@
 
 	require_once('../../Controller/procesos_controlador.php');
 	require_once('../../Controller/notas_controlador.php ');
-
 	$lista_procesos = $obj_proceso->get_procesos($id_estudiante, $id_periodo);
 ?>
 	<header class="caja-titulo text-center">
@@ -16,16 +15,16 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-6 col-lg-12" style="border: 1px solid black;">
+			<div class="col-xs-12 col-md-6 col-lg-12" style="border: 5px solid #3C7C4B;">
 				<div class="table-responsive">
-					<h2>Promedio</h2>
-					<div id="container" style="width: 75%;">
+					<h2 class="section-report">Promedio</h2>
+					<div id="container" style="text-align: center" style="width: 75%;">
 						<canvas id="canvas"></canvas>
 					</div>
 				</div>
 				<div>
-					<h2>Procesos</h2>
-					<table class="table table-hover">
+					<h2 class="section-report">Procesos</h2>
+					<table class="table table-bordered">
 						<thead>
 							<tr class="casilla-tabla">
 								<?php foreach ($lista_procesos as $proceso) {
@@ -45,24 +44,29 @@
 					</table>
 				</div>
 				<div class="table-responsive">
-					<h2>Notas</h2>
+					<h2 class="section-report">Notas</h2>
 					<?php 
 						foreach ($lista_procesos as $proceso) {
 							
 							$lista_notas = $obj_nota->get_notas($proceso['id']);
-
+							if($proceso['nombre'] != 'promedio'){
 								echo '<div class="caja-proceso">' . $proceso['nombre'].'</div><br>';
-							foreach ($lista_notas as $n) {
-									echo "<div class='caja-lista'>
-											<ul class='lista-ordenanda'>";
-									echo '<li>' . $n['titulo'] . ': ' . $n['calificacion'] . '</li>';
-									echo "</ul></div>";
-							}	
+								if(count($lista_notas) == 0){
+									echo('no hay notas todavia');
+								}else{
+									foreach ($lista_notas as $n) {
+										echo "<div class='caja-lista'>
+												<ul class='lista-ordenanda'>";
+										echo '<li>' . $n['titulo'] . ': ' . $n['calificacion'] . '</li>';
+										echo "</ul></div>";
+									}	
+								}
+							}
 						}
 					?>
 				</div>
 				<div class="caja-lista">
-					<h2>Comentarios</h2>
+					<h2 class="section-report">Comentarios</h2>
 					<?php 
 						require_once('../../Controller/comentario_controlador.php');
 

@@ -14,7 +14,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-md-6 col-lg-12">
-			<p>Haz click sobre un estdiante para obtener toda su informacion</p>
+			<p style="padding-top: 5px">Haz click sobre un estdiante para obtener toda su informacion</p>
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead>
@@ -36,7 +36,7 @@
 				</table>
 			</div>
 		</div>
-		<nav aria-label="...">
+		<nav aria-label="..."><!--Crear navegacion-->
 			<ul class="pager">
 				<li><a href="#">Anterior</a></li>
 				<li><a href="#">Siguiente</a></li>
