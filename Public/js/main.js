@@ -23,7 +23,7 @@ function ver_informe(valor1, valor2){
 
 	if(valor1 != 'Selecciona una opcion' && valor2 != 'Selecciona una opcion'){
 
-		location.href='../Reports/indexReports.php?p=' + valor1 + '&c=' + valor2;
+		location.href='../Reports/indexReports.php?p=' + valor1 + '&c=' + valor2 + '&pagina=1';
 	}
 }
 

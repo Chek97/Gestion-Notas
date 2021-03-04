@@ -51,7 +51,7 @@ $pagina = $_GET['pagina'];
 								<td><a href="changeNote.php?id=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&nomp=<?php echo $d['nombre']; ?>&curso=<?php echo $curso; ?>"><?php echo $d['nota'] ?></a></td>
 							<?php } ?>
 							<td><a href="addProcessNote.php?estudiante=<?php echo $est['id']; ?>&periodo=<?php echo $periodo; ?>&curso=<?php echo $curso; ?>"><button class="btn btn-success">Agregar Nota</button></a></td>
-							<td><a href="showComments.php?id=<?php echo $est['id']; ?>&curso=<?php echo $curso; ?>&periodo=<?php echo $periodo; ?>"><button class="btn btn-success">Ver Comentarios</button></a></td>
+							<td><a href="showComments.php?id=<?php echo $est['id']; ?>&curso=<?php echo $curso; ?>&periodo=<?php echo $periodo; ?>&pagina=1"><button class="btn btn-success">Ver Comentarios</button></a></td>
 						</tr>
 					<?php
 					}
