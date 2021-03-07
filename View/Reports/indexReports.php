@@ -5,7 +5,12 @@
 
 	$periodo = $_GET['p'];
 	$curso = $_GET['c'];
-	$lista_estudiantes = $obj_estudiante->get_estudiantes($curso);
+
+	$pagina = $_GET['pagina'];
+
+	$tamanoPaginas = 10;
+	$empezar = ($pagina - 1) * $tamanoPaginas;
+	$lista_estudiantes = $obj_estudiante->get_estudiantes($curso, $tamanoPaginas, $empezar);
 
 ?>
 <header class="caja-titulo text-center">
