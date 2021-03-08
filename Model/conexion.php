@@ -8,7 +8,7 @@
 
 			try{
 
-				$conexion = new PDO('mysql:host=localhost; dbname=notas_maria', 'root', '');
+				$conexion = new PDO('mysql:host=localhost; dbname=gestionMaria', 'root', '');
 
 				$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

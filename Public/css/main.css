@@ -7,26 +7,25 @@
 
 .caja-titulo{
 
-	margin-left: 50px; 
-	margin-right: 50px;
-	margin-top: 20px; 
-	padding: 20px;
-	background-color: #60C2A7;
+	padding: 10px;
+	background-color: #3C7C4B;
 	font-style: italic;
 	color: white;
-	border-radius: 45px;
 }
 
-.centro{
-	text-align: center;
+h1 {
+	font-weight: 900;
 }
 
 .texto{
-	font-size: 25px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
 }
 
 .caja-botones{
-	height: 200px;
+	height: 33%;
+	margin-bottom: 10px;
 }
 
 .boton{
@@ -38,21 +37,19 @@
 	color: white;
 }
 
-.enlace>.boton:hover{
+.enlace > .boton:hover{
 	color: #60c276;
 	background-color: white;
 	border-color: #60c276;
 
 }
 
-.caja-formulario{
+/* 
+*********************************
+Cajas de formularios de seleccion
+*********************************
+*/
 
-	margin-left: 320px;
-	margin-right: 320px;
-	margin-top: 50px;
-	height: 400px;
-	background-color: #3C7C4B;
-}
 
 .titulo{
 
@@ -69,11 +66,19 @@
 
 }
 
-.caja-input{
+label {
+	color: white;
+}
 
+.caja-input{
 	margin: 20px;
 }
 
+/* 
+*********************************
+			Botones
+*********************************
+*/
 .boton-principal{
 
 	background-color: #3C7C4B;
@@ -87,22 +92,39 @@
 
 .casilla-tabla{
 
-	background-color: #60c276;
-	font-style: italic;
-	font-size: 15px;
+	background-color: #3c7c4b;
 	color: white;
 }
 
-.formulario-actualizar{
+.formText {
+	background-color: #3C7C4B;
+	padding: 10px;
+}
 
-	margin-left: 300px;
-	margin-right: 300px;
-	height: 400px;
+/* 
+*********************************
+			Formularios
+*********************************
+*/
+
+
+.formulario-actualizar{
+	padding: 10px;
 	background-color: #60c276;
-	font-style: italic;
 	font-size: 18px;
 
 }
+
+/* 
+*********************************
+		Estilos de las tablas
+*********************************
+*/
+
+.table th {
+	background-color: #3C7C4B;
+	color: white;
+} 
 
 .titulo-aparte{
 
@@ -124,23 +146,26 @@
 
 .caja-proceso{
 
-	border: 2px solid #60c276;
-	padding: 5px;
-	font-style: italic;
+	background-color: #3c7c4b;
+	margin-right: 60%;
+	padding: 10px 15px 10px 15px;
 	color: white;
-	background-color: #3C7C4B;
-	font-size: 18px;
+	border-radius: 4px;
 }
 
 .caja-lista{
 
-	font-size: 18px;
+	font-size: 15px;
 }
 
-.lista-ordenanda{
+.imagen-boton{
+	width: 25%;
+}
 
-	border: 1px solid;
+.section-report {
 	background-color: #60c276;
+	color: white;
+	padding: 15px;
 }
 
 

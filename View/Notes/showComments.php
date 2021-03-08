@@ -1,12 +1,13 @@
 <?php include_once('../Includes/header.php'); 
-
-$pagina = $_GET['pagina'];
+    $periodo = $_GET['periodo'];
+	$curso = $_GET['curso'];
+    $pagina = $_GET['pagina'];
 ?>
-
+<header class="caja-titulo text-center">
+    <h1><span><a href="./studentsNote.php?p=<?php echo($periodo)?>&c=<?php echo($curso)?>">volver </a></span>COMENTARIOS DEL ESTUDIANTE</h1>
+</header>
+>>>>>>> develop
 <div class='container'>
-    <div>
-        <h1>COMENTARIOS DEL ESTUDIANTE</h1>
-    </div>
     <div class='row'>
         <div class='table-responsive'>
             <table class='table table-bordered'>
@@ -31,7 +32,7 @@ $pagina = $_GET['pagina'];
 
                             <tr>
                                 <td><?php echo($comEst['comentario']); ?></td>
-                                <td><a href="editComment.php?id=<?php echo $comEst['id']; ?>"><button class='btn btn-success'>Editar</button></a></td>
+                                <td><a href="editComment.php?id=<?php echo $comEst['id'];?>&c=<?php echo($curso)?>&p=<?php echo($periodo)?>"><button class='btn btn-success'>Editar</button></a></td>
                             </tr>                    
                 <?php       }
                         }
