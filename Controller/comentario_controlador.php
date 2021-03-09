@@ -1,6 +1,6 @@
 <?php 
 	
-	require_once('../../Model/comentarios_modelo.php');//cambiar la ruta de el modelo para que no haya conflicto con showcomments
+	require_once('../../Model/comentarios_modelo.php');
 
 	$obj_comentario = new Comentario();
 

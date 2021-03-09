@@ -1,7 +1,7 @@
 <?php 
 
-	require_once('../Model/estudiantes_modelo.php');
-	require_once('../Model/procesos_modelo.php');
+	require_once('../../Model/estudiantes_modelo.php');
+	require_once('../../Model/procesos_modelo.php');
 
 	$obj_estudiante = new Estudiantes();
 	$obj_proceso = new Procesos();
@@ -22,28 +22,14 @@
 			//Insertamos los procesos del estudiante creado 
 			if($obj_proceso->crear_procesos($id_estudiante)){
 
-				session_start();
-
-				$_SESSION['accion'] = 'info';
-				$_SESSION['mensaje'] = 'El estudiante fue creado con exito';
-
 				header('location: ../View/Students/addStudent.php');
 			}else{
-				session_start();
-
-				$_SESSION['accion'] = 'danger';
-				$_SESSION['mensaje'] = 'El los procesos no pudieron ser creados';
-				
-				header('location: ../View/Students/addStudent.php');
+				echo "No se creo algo";
 			}
 
 			//header('location: ../Vista/agregar_estudiante.php');
 		}else{
-			session_start();
-			$_SESSION['accion'] = 'danger';
-			$_SESSION['mensaje'] = 'El estudiante no pudo ser creado';
-				
-			header('location: ../View/Students/addStudent.php');
+			echo "No se guardo";
 		}
 	}
  ?>
