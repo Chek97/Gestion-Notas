@@ -6,9 +6,6 @@ $curso = $_GET['c'];
 $pagina = $_GET['pagina'];
 
 ?>
-<header class="caja-titulo text-center">
-	<h1><span><a href="../../index.php">Volver</a></span> NOTAS DE ESTUDIANTES</h1>
-</header>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-md-12 col-lg-12">
@@ -16,7 +13,7 @@ $pagina = $_GET['pagina'];
 				<h1>NOTAS DE ESTUDIANTES</h1>
 			</div>
 			<div class='table-responsive'>
-				<table class="table table-hover" style="border: 1px solid gray">
+				<table class="table table-bordered">
 					<thead>
 						<tr class="casilla-tabla">
 							<th>ID</th>
@@ -43,9 +40,11 @@ $pagina = $_GET['pagina'];
 					foreach ($lista_estudiantes[0] as $est) {
 
 						$lista_id = $obj_proceso->get_procesos($est['id'], $periodo);
+
+
 					?>
 						<tr>
-							<td><strong><?php echo $est['id'] ?></strong></td>
+							<td><?php echo $est['id'] ?></td>
 							<td><?php echo $est['nombre'] ?></td>
 							<td><?php echo $est['apellido'] ?></td>
 							<?php foreach ($lista_id as $d) { ?>
@@ -58,12 +57,6 @@ $pagina = $_GET['pagina'];
 					}
 					?>
 				</table>
-				<nav aria-label="...">
-					<ul class="pager">
-						<li><a href="#">Anterior</a></li>
-						<li><a href="#">Siguiente</a></li>
-					</ul>
-				</nav>
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center;">
