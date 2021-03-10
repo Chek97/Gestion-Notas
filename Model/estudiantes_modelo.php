@@ -36,21 +36,17 @@
 			return $id['id'];
 		}
 
-		public function get_estudiantes($id_curso, $tamanoPaginas, $empezar){
+		public function get_estudiantes($id_curso){
 
-			$consulta3 = $this->bd->query("SELECT * FROM estudiante WHERE curso_id='$id_curso' LIMIT $empezar,$tamanoPaginas");
-			$consulta4 = $this->bd->query("SELECT * FROM estudiante WHERE curso_id='$id_curso'");
+			$consulta3 = $this->bd->query("SELECT * FROM estudiante WHERE curso_id='$id_curso'");
 			$lista = array();
-
-			$numFilas = $consulta4->rowCount();
-			$totalPaginas = ceil($numFilas / $tamanoPaginas);
 
 			while($registro = $consulta3->fetch(PDO::FETCH_ASSOC)){
 
 				$lista[] = $registro;
 			}
 
-			return [$lista, $totalPaginas];
+			return $lista;
 		}
 	}
 

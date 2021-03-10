@@ -23,21 +23,17 @@
 			}
 		}
 
-		public function obtener_comentario($id, $tamanoPaginas, $empezar){
+		public function obtener_comentario($id){
 
-			$consulta3 = $this->bd->query("SELECT * FROM comportamiento WHERE estudiante_id='$id' LIMIT $empezar,$tamanoPaginas");
 			$consulta2 = $this->bd->query("SELECT * FROM comportamiento WHERE estudiante_id='$id'");
 			$lista = array();
-
-			$numFilas = $consulta3->rowCount();
-			$totalPaginas = ceil($numFilas / $tamanoPaginas);
 
 			while($registro = $consulta2->fetch(PDO::FETCH_ASSOC)){
 
 				$lista[] = $registro;
 			}
 
-			return [$lista, $totalPaginas];
+			return $lista;
 		}
 
 		public function actualizar_comentario($id, $valor){
