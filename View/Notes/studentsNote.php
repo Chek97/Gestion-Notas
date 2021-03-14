@@ -1,18 +1,17 @@
 <?php include('../Includes/header.php'); 
-
 	//Obtenemos los indicadores de curso y periodo
 	$periodo = $_GET['p'];
 	$curso = $_GET['c'];
 
 ?>
+<header class="caja-titulo text-center">
+	<h1><span><a href="../../index.php">Volver</a></span> NOTAS DE ESTUDIANTES</h1>
+</header>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-md-6 col-lg-12">
-			<div class="centro titulo" style="background-color: #3C7C4B; margin-top: 10px;">
-				<h1>NOTAS DE ESTUDIANTES</h1>
-			</div>
 			<div class='table-responsive'>
-				<table class="table table-bordered">
+				<table class="table table-hover" style="border: 1px solid gray">
 					<thead>
 						<tr class="casilla-tabla">
 							<th>ID</th>
@@ -27,7 +26,10 @@
 						</tr>
 					</thead>
 					<?php 
-						require_once('../../Controller/estudiante_controlador.php');
+						require_once('../../Model/estudiantes_modelo.php');
+						require_once('../../Model/procesos_modelo.php');
+						$obj_estudiante = new Estudiantes();
+						$obj_proceso = new Procesos();
 						//Traer a los estudiantes a partir del curso
 						$lista_estudiantes = $obj_estudiante->get_estudiantes($curso);
 
@@ -37,10 +39,9 @@
 
 							$lista_id = $obj_proceso->get_procesos($est['id'], $periodo);
 				
-							
 					?>
 						<tr>
-							<td><?php echo $est['id'] ?></td>
+							<td><strong><?php echo $est['id'] ?></strong></td>
 							<td><?php echo $est['nombre'] ?></td>
 							<td><?php echo $est['apellido'] ?></td>
 						<?php foreach ($lista_id as $d) { ?>	
@@ -53,10 +54,13 @@
 						}
 					?>
 				</table>
+				<nav aria-label="...">
+					<ul class="pager">
+						<li><a href="#">Anterior</a></li>
+						<li><a href="#">Siguiente</a></li>
+					</ul>
+				</nav>
 			</div>
-		</div>
-		<div class="col-xs-12 col-md-6 col-lg-6">
-			<a href="../../index.php">Volver</a>
 		</div>
 	</div>
 </div>
