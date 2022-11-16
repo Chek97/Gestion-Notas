@@ -1,6 +1,0 @@
-<?php
-    //Routes for application
-
-
-
-?>

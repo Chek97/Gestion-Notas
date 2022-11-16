@@ -1,1 +1,0 @@
-<?php header('location: View/Home/Home.php'); ?>
