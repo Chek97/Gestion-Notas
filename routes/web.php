@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('main');
+})->name('index');
+
+Route::get('/create', function () {
+    return view('create.create_main');
+})->name('create-index');
+
+Route::resource('students', StudentsController::class);
+
+Route::get('/create/course', [CoursesController::class, 'create'])->name('course.create');
+Route::post('/create/course', [CoursesController::class, 'store'])->name('course.store');
