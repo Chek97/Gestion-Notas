@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use App\Models\Process;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -19,16 +20,6 @@ class NotesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -36,7 +27,14 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $note = new Note();
+        
+        $note->title = $request->title;
+        $note->calification = $request->note;
+        $note->process_id = $request->process;
+        
+        $note->save();
+        return to_route('index');
     }
 
     /**

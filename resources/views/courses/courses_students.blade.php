@@ -19,7 +19,7 @@
                     <th>Socio-Personal</th>
                     <th>Solucion de Problemas</th>
                     <th>Promedio</th>
-                    <th colspan="2">Acciones</th>
+                    <th colspan="2" class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
                                 <td><a href="#">{{$process['note']}}</a></td>
                             @endif
                         @endforeach
-                        <td><a href="#" class="btn btn-success">Agregar Nota</a></td>
+                        <td><a href="{{ route('main.create', ['id' => $student->id, 'period' => $period]) }}" class="btn btn-success">Agregar Nota</a></td>
                         <td><a href="#" class="btn btn-info">Agregar Comportamiento</a></td>
                     </tr>
                 @endforeach

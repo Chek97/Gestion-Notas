@@ -5,6 +5,7 @@ use App\Http\Controllers\NotesController;
 use App\Http\Controllers\StudentsController;
 use App\Models\Course;
 use App\Models\Period;
+use App\Models\Process;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,5 +40,9 @@ Route::get('notes', function(){
 
 Route::post('notes', [NotesController::class, 'validateCourse'])->name('notes.validate');
 
-Route::resource('notes/main', NotesController::class);
+Route::resource('notes/main', NotesController::class)->except('create');
+Route::get('/notes/main/{id}/{period}', function($id, $period){
+    $process = Process::where('student_id', $id)->where('period_id', $period)->get();
+    return view('courses.courses_note', compact(['process']));
+})->name('main.create');
 //Route::get('notes/main/{course}/{period}', [NotesController::class, 'index'])->name('notes.index');
