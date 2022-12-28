@@ -43,6 +43,7 @@ Route::post('notes', [NotesController::class, 'validateCourse'])->name('notes.va
 Route::resource('notes/main', NotesController::class)->except('create');
 Route::get('/notes/main/{id}/{period}', function($id, $period){
     $process = Process::where('student_id', $id)->where('period_id', $period)->get();
-    return view('courses.courses_note', compact(['process']));
+    $student = $id;
+    return view('courses.courses_note', compact(['process', 'student', 'period']));
 })->name('main.create');
 //Route::get('notes/main/{course}/{period}', [NotesController::class, 'index'])->name('notes.index');

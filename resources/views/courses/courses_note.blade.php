@@ -11,6 +11,8 @@
         </header>
         <form action="{{ route('main.store') }}" method="POST">
             @csrf
+            <input type="hidden" name="studentId" value="{{$student}}">
+            <input type="hidden" name="period" value="{{$period}}">
             <div class="form-group">
                 <input type="text" name="title" placeholder="titulo" class="form-control">
             </div>

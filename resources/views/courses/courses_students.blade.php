@@ -29,7 +29,11 @@
                         <td>{{$student->name}}</td>
                         @foreach ($processes as $process)
                             @if ($process['student'] == $student->id)
-                                <td><a href="#">{{$process['note']}}</a></td>
+                                @if ($process['name'] == 'promedio')
+                                    <td>{{$process['note']}}</td>
+                                @else
+                                    <td><a href="{{ route('main.show', ['main' => $process['id']]) }}">{{$process['note']}}</a></td>
+                                @endif
                             @endif
                         @endforeach
                         <td><a href="{{ route('main.create', ['id' => $student->id, 'period' => $period]) }}" class="btn btn-success">Agregar Nota</a></td>
