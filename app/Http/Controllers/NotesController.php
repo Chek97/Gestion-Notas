@@ -54,33 +54,7 @@ class NotesController extends Controller
                 }
             }
         }
-        // todo: enviar mensajes flash para verificar el proceso
-        // todo: intentar middleware que sume el promedio de los procesos
         return to_route('index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $process = Process::findOrFail($id);
-        $notes = Note::where('process_id', $id)->get();
-        return view('courses.courses_process', compact(['process', 'notes']));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -92,7 +66,38 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $note = Note::findOrFail($id);
+        $process = Process::findOrFail($request->process);
+        $noteFlag = false;
+        $allNotes = 0;
+        $prom = 0;
+
+        $note->title = $request->title;
+        if($note->calification != $request->note){
+            $noteFlag = true;
+        }
+        $note->calification = $request->note;
+
+        $note->save();
+
+        if($noteFlag == true){
+            $processNotes = Note::where('process_id', $request->process)->get();
+            if(count($processNotes) == 0){
+                return to_route('index');
+            }else{
+                foreach ($processNotes as $prodNote) {
+                    $allNotes += $prodNote->calification;
+                }
+                $prom = $allNotes / count($processNotes); //Promedio del proceso
+                $process->note = round($prom, 2);
+                $process->save();
+                if($process->wasChanged()){
+                    $this->calculateProcesProm($request->student_id, $request->period_id);
+                }
+            }
+        }
+
+        return to_route('index');
     }
 
     /**
@@ -101,9 +106,33 @@ class NotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($main, $student, $period, $process)
     {
-        //
+        $note = Note::findOrFail($main);
+        $process_id = Process::findOrFail($process);
+        $allNotes = 0;
+        $prom = 0;
+
+        $note->delete();
+
+        if($note->isClean()){
+            $processNotes = Note::where('process_id', $process)->get();
+            if(count($processNotes) == 0){
+                return to_route('index');
+            }else{
+                foreach ($processNotes as $prodNote) {
+                    $allNotes += $prodNote->calification;
+                }
+                $prom = $allNotes / count($processNotes); //Promedio del proceso
+                $process_id->note = round($prom, 2);
+                $process_id->save();
+                if($process_id->wasChanged()){
+                    $this->calculateProcesProm($student, $period);
+                }
+            }
+        }
+
+        return to_route('index');
     }
 
     public function validateCourse(Request $request){
@@ -129,7 +158,7 @@ class NotesController extends Controller
         foreach ($process_notes as $proNot) {
             $result += $proNot->note;
         }
-        $result = $result / 4;
+        $result = round($result / 4, 2);
         Process::where("student_id", $student_id)->where("period_id", $period_id)->where("name", "promedio")->update(["note" => $result]);
     }
 }

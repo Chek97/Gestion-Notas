@@ -32,7 +32,7 @@
                                 @if ($process['name'] == 'promedio')
                                     <td>{{$process['note']}}</td>
                                 @else
-                                    <td><a href="{{ route('main.show', ['main' => $process['id']]) }}">{{$process['note']}}</a></td>
+                                    <td><a href="{{ route('main.show', ['main' => $process['id'], 'student' => $student->id, 'period' => $period]) }}">{{$process['note']}}</a></td>
                                 @endif
                             @endif
                         @endforeach
