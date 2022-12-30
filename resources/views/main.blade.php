@@ -11,7 +11,7 @@
         </header>
         <div>
             <a href="{{ route('create-index') }}" class="btn btn-primary">Agregar cursos o estudiantes</a>
-            <a href="#" class="btn btn-success">Agregar notas</a>
+            <a href="{{ route('courses-index') }}" class="btn btn-success">Agregar notas</a>
             <a href="#" class="btn btn-info">Obtener reportes de estudiantes</a>
         </div>
     </div>
