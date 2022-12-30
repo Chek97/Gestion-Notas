@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BehaviorsController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\StudentsController;
@@ -64,3 +65,5 @@ Route::get('/notes/main/{main}/edit/{student}/{period}', function($main, $studen
 
 Route::delete('/notes/main/{main}/{student}/{period}/{process}', [NotesController::class, 'destroy'])->name('main.destroy');
 //Route::get('notes/main/{course}/{period}', [NotesController::class, 'index'])->name('notes.index');
+
+Route::resource('/behavior', BehaviorsController::class);

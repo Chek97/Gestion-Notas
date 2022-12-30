@@ -37,7 +37,7 @@
                             @endif
                         @endforeach
                         <td><a href="{{ route('main.create', ['id' => $student->id, 'period' => $period]) }}" class="btn btn-success">Agregar Nota</a></td>
-                        <td><a href="#" class="btn btn-info">Agregar Comportamiento</a></td>
+                        <td><a href="{{ route('behavior.show',  $student->id) }}" class="btn btn-info">Agregar Comportamiento</a></td>
                     </tr>
                 @endforeach
             </tbody>
