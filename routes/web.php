@@ -3,6 +3,7 @@
 use App\Http\Controllers\BehaviorsController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\NotesController;
+use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\StudentsController;
 use App\Models\Course;
 use App\Models\Note;
@@ -40,6 +41,12 @@ Route::get('notes', function(){
     return view('courses.courses_main', compact(['courses', 'periods']));
 })->name('courses-index');
 
+Route::get('reports', function(){
+    $courses = Course::all();
+    $periods = Period::all();
+    return view('reports.reports_main', compact(['courses', 'periods']));
+})->name('reports-index');
+
 Route::post('notes', [NotesController::class, 'validateCourse'])->name('notes.validate');
 
 Route::resource('notes/main', NotesController::class)->except('create', 'destroy', 'show', 'edit');
@@ -67,3 +74,6 @@ Route::delete('/notes/main/{main}/{student}/{period}/{process}', [NotesControlle
 //Route::get('notes/main/{course}/{period}', [NotesController::class, 'index'])->name('notes.index');
 
 Route::resource('/behavior', BehaviorsController::class);
+
+Route::get('reports/course', [ReportsController::class, 'store'])->name('reports.validate');
+Route::get('reports/student/{id}/{course}/{period}', [ReportsController::class, 'show'])->name('reports.show');
